@@ -8,7 +8,7 @@ Riak Command Line Tool With NodeJS.
 ## Installation
 
     $ brew install node
-    $ git clone https://github.com/xplusz/riak-cli.git
+    $ git clone https://github.com/tim-tang/riak-cli 
     $ cd riak-cli && npm install
 
 > Export *RIAK_CLI_HOME* and bin directory to you system path.
