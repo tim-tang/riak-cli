@@ -1,0 +1,36 @@
+#!/usr/local/bin/node
+/**
+ * Riak client implementation.
+ *
+ * @Author: tim.tang
+ */
+
+var optionRouter = require('../lib/riakOptionRouter'),
+    colors = require('colors'),
+    constants = require('../utils/constants'),
+    util = require('util'),
+    _ = require('underscore'),
+    argv = require('optimist')
+    .usage('Interactive Riak Command Line Tool.\nUsage: riak-cli -m [get|post|put|delete|keys|buckets|count] -b [bucket] [-k [key]] [-d|-f [data|dataPath]]')
+    .demand('m')
+    .describe('m', 'Riak method -> get|post|put|delete|keys|buckets|count')
+    .default('b', constants.DEFAULT_OPT)
+    .describe('b', 'Riak bucket name')
+    .default('k', constants.DEFAULT_OPT)
+    .describe('k', 'Riak key value')
+    .default('d', constants.DEFAULT_OPT)
+    .describe('d', 'Riak data')
+    .default('f', constants.DEFAULT_OPT)
+    .describe('f', 'Riak data file path')
+    .argv;
+
+
+console.log('//----------------- Command Params ----------------------//');
+console.log(util.format('// Riak method -> %s',argv.m.blue));
+console.log(util.format('// Riak bucket -> %s',argv.b.blue));
+console.log(util.format('// Riak key -> %s', _.isString(argv.k)? argv.k.blue: argv.k));
+console.log(util.format('// Riak data -> %s', argv.d.blue));
+console.log(util.format('// Riak data -> %s', argv.f.blue));
+console.log('//-------------------------------------------------------//\n');
+
+optionRouter.dispatch(argv);
