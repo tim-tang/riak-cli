@@ -5,6 +5,8 @@ Riak Command Line Tool With NodeJS.
 - Use Riak http api with curl to query riak is really annoying! So the tool born. Cheers!
 - This is a Riak terminal query tool, provides basic POST/PUT/DELETE/GET etc methods.
 
+[![Build Status](https://travis-ci.org/tim-tang/riak-cli.svg)](https://travis-ci.org/tim-tang/riak-cli)
+
 ## Installation
 
     $ brew install node
